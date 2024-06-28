@@ -1,0 +1,32 @@
+/* CSS Styles for Fruit Category Page */
+.fruit-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.fruit-item {
+    width: 200px;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.fruit-item img {
+    width: 100px;
+    height: 100px;
+}
+
+.add-to-cart-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #45a049;
+}

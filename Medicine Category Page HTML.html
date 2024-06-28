@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Medicines</title>
+    <script src="https://kit.fontawesome.com/5471644867.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="Medicine Category Page CSS.css">
+    <link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico" />
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <a href="Shopping Cart HTML.html" class="user-profile" style="float: right;">
+            <i class="fas fa-shopping-cart"></i>
+        </a>
+    </header>
+
+    <section id="popular-product">
+        <!--heading----------->
+        <div class="product-heading">
+            <h2 class='fruits-heading'>Medicines</h2>
+        </div>
+        <!--box-container------>
+        <div class="product-container">
+            <!--box---------->
+            <div class="product-box" style="height: 95%;">
+                <img alt="Cetirizine" src="https://i.imgur.com/QWMkLQ6.jpg">
+                <strong>Cetirizine 10mg</strong>
+                <span class="quantity">10 Tablets</span>
+                <span class="price">Rs. 16.10</span>
+                <!--cart-btn------->
+                <button class="cart-btn" onclick="addToCart('Cetirizine 10mg', '10 Tablets', 16.10, 'https://i.imgur.com/QWMkLQ6.jpg')">
+                    <i class="fas fa-shopping-bag"></i> Add to Cart
+                </button>
+                <!--like-btn------->
+                <a class="like-btn" style="text-decoration: none;">
+                    <i class="far fa-heart"></i>
+                </a>
+            </div>
+            <!--box---------->
+            <div class="product-box">
+                <img alt="CUFRIL-D Cough Syrup" src="https://i.imgur.com/t3jlpYD.jpg">
+                <strong>CUFRIL-D Cough Syrup</strong>
+                <span class="quantity"></span>
+                <span class="price">Rs. 88</span>
+                <!--cart-btn------->
+                <button class="cart-btn" onclick="addToCart('CUFRIL-D Cough Syrup', '', 88, 'https://i.imgur.com/t3jlpYD.jpg')">
+                    <i class="fas fa-shopping-bag"></i> Add to Cart
+                </button>
+                <!--like-btn------->
+                <a class="like-btn" style="text-decoration: none;">
+                    <i class="far fa-heart"></i>
+                </a>
+            </div>
+            <!--box---------->
+            <div class="product-box" style="height: 95%;">
+                <img alt="Cheston Cold" src="https://i.imgur.com/KqTyIOv.png">
+                <strong>Cheston Cold</strong>
+                <span class="quantity">10 Tablets</span>
+                <span class="price">Rs. 34</span>
+                <!--cart-btn------->
+                <button class="cart-btn" onclick="addToCart('Cheston Cold', '10 Tablets', 34, 'https://i.imgur.com/KqTyIOv.png')">
+                    <i class="fas fa-shopping-bag"></i> Add to Cart
+                </button>
+                <!--like-btn------->
+                <a class="like-btn" style="text-decoration: none;">
+                    <i class="far fa-heart"></i>
+                </a>
+            </div>
+            <!--box---------->
+            <div class="product-box">
+                <img alt="Dolo 650" src="https://i.imgur.com/ZgxivW4.jpg">
+                <strong>Dolo 650</strong>
+                <span class="quantity">15 Tablets</span>
+                <span class="price">Rs. 24.75</span>
+                <!--cart-btn------->
+                <button class="cart-btn" onclick="addToCart('Dolo 650', '15 Tablets', 24.75, 'https://i.imgur.com/ZgxivW4.jpg')">
+                    <i class="fas fa-shopping-bag"></i> Add to Cart
+                </button>
+                <!--like-btn------->
+                <a class="like-btn" style="text-decoration: none;">
+                    <i class="far fa-heart"></i>
+                </a>
+            </div>
+            <!--box---------->
+            <div class="product-box">
+                <img alt="Metolar XR 50" src="https://i.imgur.com/VfI11ZP.png">
+                <strong>Metolar XR 50</strong>
+                <span class="quantity">15 Tablets</span>
+                <span class="price">Rs. 77.66</span>
+                <!--cart-btn------->
+                <button class="cart-btn" onclick="addToCart('Metolar XR 50', '15 Tablets', 77.66, 'https://i.imgur.com/VfI11ZP.png')">
+                    <i class="fas fa-shopping-bag"></i> Add to Cart
+                </button>
+                <!--like-btn------->
+                <a class="like-btn" style="text-decoration: none;">
+                    <i class="far fa-heart"></i>
+                </a>
+            </div>
+            <!--box---------->
+            <div class="product-box">
+                <img alt="Gelusil Tablets" src="https://i.imgur.com/v7EIJzM.jpg">
+                <strong>Gelusil Chewable Tablets</strong>
+                <span class="quantity">10 Tablets</span>
+                <span class="price">Rs. 15.92</span>
+                <!--cart-btn------->
+                <button class="cart-btn" onclick="addToCart('Gelusil Chewable Tablets', '10 Tablets', 15.92, 'https://i.imgur.com/v7EIJzM.jpg')">
+                    <i class="fas fa-shopping-bag"></i> Add to Cart
+                </button>
+                <!--like-btn------->
+                <a class="like-btn" style="text-decoration: none;">
+                    <i class="far fa-heart"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    <script>
+        function addToCart(name, quantity, price, image) {
+            var cartItem = {
+                name: name,
+                quantity: quantity,
+                price: price,
+                image: image
+            };
+
+            // Convert the cartItem object to a JSON string and store it in localStorage or perform any other operation as needed
+            var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            cartItems.push(cartItem);
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+            // Notify the user that the item has been added to the cart
+            alert('Added ' + name + ' to cart.');
+        }
+    </script>
+</body>
+
+</html>

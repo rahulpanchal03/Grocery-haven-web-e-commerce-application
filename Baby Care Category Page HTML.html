@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Baby Care Products</title>
+    <script src="https://kit.fontawesome.com/5471644867.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="Baby Care Category Page CSS.css">
+    <link rel="shortcut icon" type="image/jpg" href="favicon.ico">
+    <script src="cart.js" defer></script>
+</head>
+
+<body>
+    <section id="popular-product">
+        <div class="product-heading">
+            <h2 class='fruits-heading'>Baby Care Products</h2>
+        </div>
+        <div class="product-container">
+            <!-- Product 1 -->
+            <div class="product-box">
+                <img alt="Johnson's Baby Oil" src="https://i.imgur.com/0LKWxiJ.jpg">
+                <strong>Johnson's Baby Oil</strong>
+                <span class="quantity">500 ml</span>
+                <span class="price">Rs. 425</span>
+                <button class="cart-btn" onclick="addToCart('Johnson\'s Baby Oil', '500 ml', 425, 'https://i.imgur.com/0LKWxiJ.jpg')">
+                    <i class="fas fa-shopping-bag"></i> Add to Cart
+                </button>
+                <a class="like-btn" style="text-decoration: none;">
+                    <i class="far fa-heart"></i>
+                </a>
+            </div>
+            <!-- Product 2 -->
+            <div class="product-box">
+                <img alt="Little's Baby Wipes" src="https://i.imgur.com/6rlktPI.jpg">
+                <strong>Little's Baby Wipes</strong>
+                <span class="quantity">80 Wipes</span>
+                <span class="price">Rs. 95</span>
+                <button class="cart-btn" onclick="addToCart('Little\'s Baby Wipes', '80 Wipes', 95, 'https://i.imgur.com/6rlktPI.jpg')">
+                    <i class="fas fa-shopping-bag"></i> Add to Cart
+                </button>
+                <a class="like-btn" style="text-decoration: none;">
+                    <i class="far fa-heart"></i>
+                </a>
+            </div>
+            <!-- Product 3 -->
+            <div class="product-box">
+                <img alt="Mama Earth Baby Moisturizer" src="https://i.imgur.com/DEONooZ.jpg">
+                <strong>Mama Earth Baby Moisturizer</strong>
+                <span class="quantity">400 ml</span>
+                <span class="price">Rs. 339.15</span>
+                <button class="cart-btn" onclick="addToCart('Mama Earth Baby Moisturizer', '400 ml', 339.15, 'https://i.imgur.com/DEONooZ.jpg')">
+                    <i class="fas fa-shopping-bag"></i> Add to Cart
+                </button>
+                <a class="like-btn" style="text-decoration: none;">
+                    <i class="far fa-heart"></i>
+                </a>
+            </div>
+            <!-- Product 4 -->
+            <div class="product-box">
+                <img alt="Himalaya Baby Shampoo" src="https://i.imgur.com/fuAMCYN.jpg">
+                <strong>Himalaya Baby Shampoo</strong>
+                <span class="quantity">400 ml</span>
+                <span class="price">Rs. 230</span>
+                <button class="cart-btn" onclick="addToCart('Himalaya Baby Shampoo', '400 ml', 230, 'https://i.imgur.com/fuAMCYN.jpg')">
+                    <i class="fas fa-shopping-bag"></i> Add to Cart
+                </button>
+                <a class="like-btn" style="text-decoration: none;">
+                    <i class="far fa-heart"></i>
+                </a>
+            </div>
+            <!-- Product 5 -->
+            <div class="product-box">
+                <img alt="Johnson's Baby Powder" src="https://i.imgur.com/HsECirZ.jpg">
+                <strong>Johnson's Baby Powder</strong>
+                <span class="quantity">200 g</span>
+                <span class="price">Rs. 155</span>
+                <button class="cart-btn" onclick="addToCart('Johnson\'s Baby Powder', '200 g', 155, 'https://i.imgur.com/HsECirZ.jpg')">
+                    <i class="fas fa-shopping-bag"></i> Add to Cart
+                </button>
+                <a class="like-btn" style="text-decoration: none;">
+                    <i class="far fa-heart"></i>
+                </a>
+            </div>
+            <!-- Product 6 -->
+            <div class="product-box">
+                <img alt="Pampers Baby Pants" src="https://i.imgur.com/97mm2rX.jpg">
+                <strong>Pampers Baby Pants</strong>
+                <span class="quantity">58 Pants</span>
+                <span class="price">Rs. 699</span>
+                <button class="cart-btn" onclick="addToCart('Pampers Baby Pants', '58 Pants', 699, 'https://i.imgur.com/97mm2rX.jpg')">
+                    <i class="fas fa-shopping-bag"></i> Add to Cart
+                </button>
+                <a class="like-btn" style="text-decoration: none;">
+                    <i class="far fa-heart"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    <script>
+        function addToCart(name, quantity, price, image) {
+            var cartItem = {
+                name: name,
+                quantity: quantity,
+                price: price,
+                image: image
+            };
+
+            // Convert the cartItem object to a JSON string and store it in localStorage or perform any other operation as needed
+            var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            cartItems.push(cartItem);
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+            // Notify the user that the item has been added to the cart
+            alert('Added ' + name + ' to cart.');}
+    </script>
+</body>
+
+</html>

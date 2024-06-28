@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Category</title>
+    <link rel="stylesheet" href="Fruits Category Page CSS.css">
+</head>
+<body>
+    <div class="fruit-container">
+        <!-- Fruit Items -->
+        <div class="fruit-item">
+            <img src="https://i.imgur.com/8l5hDhS.png" alt="Tomato">
+            <h3>Tomato</h3>
+            <p>1 KG</p>
+            <p>Rs. 80</p>
+            <button class="add-to-cart-btn" onclick="addToCart('Tomato', '1 KG', 80)">Add to Cart</button>
+        </div>
+
+        <div class="fruit-item">
+            <img src="https://i.imgur.com/NdmmUHh.png" alt="Apple">
+            <h3>Apple</h3>
+            <p>1 KG</p>
+            <p>Rs. 100</p>
+            <button class="add-to-cart-btn" onclick="addToCart('Apple', '1 KG', 100)">Add to Cart</button>
+        </div>
+
+        <div class="fruit-item">
+            <img src="https://i.imgur.com/4Kd8t1J.png" alt="Banana">
+            <h3>Banana</h3>
+            <p>1 Dozen</p>
+            <p>Rs. 60</p>
+            <button class="add-to-cart-btn" onclick="addToCart('Banana', '1 Dozen', 60)">Add to Cart</button>
+        </div>
+
+        <div class="fruit-item">
+            <img src="https://i.imgur.com/JJLp0Gb.png" alt="Orange">
+            <h3>Orange</h3>
+            <p>1 KG</p>
+            <p>Rs. 70</p>
+            <button class="add-to-cart-btn" onclick="addToCart('Orange', '1 KG', 70)">Add to Cart</button>
+        </div>
+
+        <div class="fruit-item">
+            <img src="https://i.imgur.com/YyfdL6N.png" alt="Grapes">
+            <h3>Grapes</h3>
+            <p>500 g</p>
+            <p>Rs. 120</p>
+            <button class="add-to-cart-btn" onclick="addToCart('Grapes', '500 g', 120)">Add to Cart</button>
+        </div>
+
+        <div class="fruit-item">
+            <img src="https://i.imgur.com/9NHLtzT.png" alt="Watermelon">
+            <h3>Watermelon</h3>
+            <p>1 KG</p>
+            <p>Rs. 40</p>
+            <button class="add-to-cart-btn" onclick="addToCart('Watermelon', '1 KG', 40)">Add to Cart</button>
+        </div>
+
+        <div class="fruit-item">
+            <img src="https://i.imgur.com/vuZg4Kl.png" alt="Pineapple">
+            <h3>Pineapple</h3>
+            <p>1 Piece</p>
+            <p>Rs. 90</p>
+            <button class="add-to-cart-btn" onclick="addToCart('Pineapple', '1 Piece', 90)">Add to Cart</button>
+        </div>
+
+        <div class="fruit-item">
+            <img src="https://i.imgur.com/Czd3vL0.png" alt="Mango">
+            <h3>Mango</h3>
+            <p>1 KG</p>
+            <p>Rs. 150</p>
+            <button class="add-to-cart-btn" onclick="addToCart('Mango', '1 KG', 150)">Add to Cart</button>
+        </div>
+
+        <div class="fruit-item">
+            <img src="https://i.imgur.com/Bs9iAJY.png" alt="Strawberry">
+            <h3>Strawberry</h3>
+            <p>500 g</p>
+            <p>Rs. 200</p>
+            <button class="add-to-cart-btn" onclick="addToCart('Strawberry', '500 g', 200)">Add to Cart</button>
+        </div>
+
+        <div class="fruit-item">
+            <img src="https://i.imgur.com/7dkGx5g.png" alt="Blueberry">
+            <h3>Blueberry</h3>
+            <p>250 g</p>
+            <p>Rs. 180</p>
+            <button class="add-to-cart-btn" onclick="addToCart('Blueberry', '250 g', 180)">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- Cart Section -->
+    <div class="cart">
+        <h2>Shopping Cart</h2>
+        <ul class="cart-items"></ul>
+    </div>
+
+    <script>
+          function addToCart(name, quantity, price, image) {
+            var cartItem = {
+                name: name,
+                quantity: quantity,
+                price: price,
+                image: image
+            };
+
+            // Convert the cartItem object to a JSON string and store it in localStorage or perform any other operation as needed
+            var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            cartItems.push(cartItem);
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+            // Notify the user that the item has been added to the cart
+            alert('Added ' + name + ' to cart.');
+        }
+    </script>
+</body>
+</html>

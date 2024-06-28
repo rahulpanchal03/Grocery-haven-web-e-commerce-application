@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <!--==Navigation================================-->
+     <nav class="navigation">
+
+        <!--logo-------->
+        <a href="#" class="logo">
+            <span>GH</span>
+        </a>
+
+        <!--menu-btn---->
+        <input type="checkbox" class="menu-btn" id="menu-btn">
+
+        <label for="menu-btn" class="menu-icon">
+            <span class="nav-icon"></span>
+        </label>
+
+        <!--menu-------->
+        <ul class="menu">
+            <li>
+                <a href="index.html" class="active">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="#category">
+                    Categories
+                </a>
+            </li>
+            <li>
+                <a href="#popular-bundle-pack">
+                    Packages
+                </a>
+            </li>
+            <li>
+                <a href="Contact Form HTML.html">
+                    Contact&nbsp;Us
+                </a>
+            </li>
+            <li>
+                <a href="Feedback Form HTML.html">
+                    Feedback
+                </a>
+            </li>
+            <li>
+                <a href="About Us HTML.html">
+                    About&nbsp;us
+                </a>
+            </li>
+            <li>
+                <a href="#download-app">
+                    App
+                </a>
+            </li>
+            <li>
+                <a href="Login And Registration HTML.html">
+                    Sign&nbsp;up
+                </a>
+            </li>
+        </ul>
+
+        <li id="logout-btn" style="display: none;">
+            <a href="#" onclick="logout()">
+                Logout
+            </a>
+        </li>
+
+        <!--right-nav-(cart-like)-->
+        <div class="right-nav">
+          
+            <!--cart----->
+            <a href="Profile HTML.html" class="user-profile">
+                <i class="fas fa-user"></i>
+                <span>
+                    1
+                </span><h1>R</h1>
+            </a>
+        </div>
+    </nav>
+    <title>Wishlist</title>
+    <link rel="stylesheet" type="text/css" href="Shopping Cart CSS.css">
+    <script src="https://kit.fontawesome.com/9088cc6401.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
+</head>
+<body>
+    <div class="container">
+        <h1>Wishlist</h1>
+        <div class="cart">
+            <div class="products">
+                <div class="product">
+                    <img src="https://i.imgur.com/oYbYgGQ.jpg">
+                    <div class="product-info">
+                        <h3 class="product-name">Chakki Fresh Atta</h3>
+                        <h4 class="product-price">Rs. 350</h4>
+                        <h4 class="product-offer">50%</h4>
+                        <p class="product-quantity">Qnt: <input value="1" name=""></p>
+                        <p class="product-remove" onclick="removeProduct(this)">
+                            <i class="fas fa-trash-alt"></i>
+                            <span class="remove">Remove</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="https://i.imgur.com/mHmTIxp.jpg">
+                    <div class="product-info">
+                        <h3 class="product-name">Maggie</h3>
+                        <h4 class="product-price">Rs. 10</h4>
+                        <h4 class="product-offer">20%</h4>
+                        <p class="product-quantity">Qnt: <input value="1" name=""></p>
+                        <p class="product-remove" onclick="removeProduct(this)">
+                            <i class="fas fa-trash-alt"></i>
+                            <span class="remove">Remove</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-total" id="cartTotal">
+                <p>
+                    <span>Total Price</span>
+                    <span>Rs. 0</span>
+                </p>
+                <p>
+                    <span>No. of Items</span>
+                    <span>0</span>
+                </p>
+                <p>
+                    <span>You Save</span>
+                    <span>Rs. 0</span>
+                </p>
+                <a href="Details For Checkout HTML.html">Buy Now</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function removeProduct(element) {
+            // Remove the parent product element when the "Remove" button is clicked
+            var productElement = element.closest('.product');
+            productElement.remove();
+            // Call a function to recalculate the total price, number of items, and savings
+            updateCartTotal();
+        }
+
+        function updateCartTotal() {
+            var totalPrice = 0;
+            var totalItems = 0;
+
+            // Loop through each product and calculate total price and number of items
+            var products = document.querySelectorAll('.product');
+            products.forEach(function(product) {
+                var priceElement = product.querySelector('.product-price');
+                var priceText = priceElement.innerText;
+                var price = parseFloat(priceText.replace('Rs. ', ''));
+                totalPrice += price;
+
+                var quantityInput = product.querySelector('.product-quantity input');
+                var quantity = parseInt(quantityInput.value);
+                totalItems += quantity;
+            });
+
+            // Update the total price, number of items, and savings in the cart
+            var totalPriceElement = document.querySelector('#cartTotal span:nth-child(2)');
+            totalPriceElement.innerText = 'Rs. ' + totalPrice.toFixed(2);
+
+            var totalItemsElement = document.querySelector('#cartTotal span:nth-child(4)');
+            totalItemsElement.innerText = totalItems;
+
+            // For simplicity, let's assume savings are calculated elsewhere and just set it to zero here
+            var savingsElement = document.querySelector('#cartTotal span:nth-child(6)');
+            savingsElement.innerText = 'Rs. 0';
+        }
+
+        // Call the updateCartTotal function initially to display correct initial values
+        updateCartTotal();
+    </script>
+</body>
+</html>
